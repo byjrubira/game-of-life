@@ -1,0 +1,39 @@
+{
+  "name": "byjrubira/game-of-life",
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Jorge Rubira",
+      "email": "jrubiragarzas@gmail.com",
+      "homepage": "https://byjrubira.com/",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "byjrubira\\GameOfLife\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "byjrubira\\Tests\\GameOfLife\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^7.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "scripts": {
+    "start": [
+      "@composer dump -o -a -n --no-dev",
+      "php start.php 20 20 0"
+    ],
+    "tests": [
+      "@composer install -o -a -n --prefer-dist",
+      "phpunit"
+    ]
+  }
+}
