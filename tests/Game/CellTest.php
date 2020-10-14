@@ -24,7 +24,7 @@ class CellTest extends TestCase
 
 
     // Testing with alive cells
-	public function testCellTickWithOneAliveNeighbours()
+    public function testCellTickWithOneAliveNeighbours()
     {
         $cell = new Cell(1);
         $newCell = $cell->tick(1);
@@ -58,8 +58,7 @@ class CellTest extends TestCase
 
 
     // Testing with dead cells
-	
-	public function testDeadCellTickWithOneAliveNeighbours()
+    public function testDeadCellTickWithOneAliveNeighbours()
     {
         $cell = new Cell(0);
         $newCell = $cell->tick(1);
@@ -67,7 +66,7 @@ class CellTest extends TestCase
         $this->assertFalse($newCell->imAlive());
     }
 	
-	public function testDeadCellTickWithTwoAliveNeighbours()
+    public function testDeadCellTickWithTwoAliveNeighbours()
     {
         $cell = new Cell(0);
         $newCell = $cell->tick(2);
@@ -83,7 +82,7 @@ class CellTest extends TestCase
         $this->assertTrue($newCell->imAlive());
     }
   
-	public function testDeadCellTickWithFourAliveNeighbours()
+    public function testDeadCellTickWithFourAliveNeighbours()
     {
         $cell = new Cell(0);
         $newCell = $cell->tick(4);
