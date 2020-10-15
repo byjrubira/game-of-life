@@ -14,12 +14,20 @@ class Universe
         $this->matrix = $matrix;
     }
 
-    public function getMatrix()
+    /**
+    * Returns the matrix of the universe
+    * @return Matrix
+    */
+    public function getMatrix(): Matrix
     {
         return $this->matrix;
     }
 
-    public function tick(): Universe
+    /**
+    * Tick the universe
+    * @return Universe
+    */
+    public function tick(): self
     {
         return UniverseFactory::makeNewUniverse($this->matrix->tick());
     }
