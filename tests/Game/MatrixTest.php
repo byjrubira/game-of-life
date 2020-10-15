@@ -226,15 +226,15 @@ class MatrixTest extends TestCase
 
         $tickMatrix = $matrix->tick();
 
-        $this->assertTrue($tickMatrix->ifCellAliveAt(0,0));
-        $this->assertFalse($tickMatrix->ifCellAliveAt(0,1));
-        $this->assertTrue($tickMatrix->ifCellAliveAt(0,2));
-        $this->assertFalse($tickMatrix->ifCellAliveAt(1,0));
-        $this->assertFalse($tickMatrix->ifCellAliveAt(1,1));
-        $this->assertFalse($tickMatrix->ifCellAliveAt(1,2));
-        $this->assertTrue($tickMatrix->ifCellAliveAt(2,0));
-        $this->assertFalse($tickMatrix->ifCellAliveAt(2,1));
-        $this->assertFalse($tickMatrix->ifCellAliveAt(2,2));
+        $this->assertEquals(1, $tickMatrix->ifCellAliveAt(0,0));
+        $this->assertEquals(0, $tickMatrix->ifCellAliveAt(0,1));
+        $this->assertEquals(1, $tickMatrix->ifCellAliveAt(0,2));
+        $this->assertEquals(0, $tickMatrix->ifCellAliveAt(1,0));
+        $this->assertEquals(0, $tickMatrix->ifCellAliveAt(1,1));
+        $this->assertEquals(0, $tickMatrix->ifCellAliveAt(1,2));
+        $this->assertEquals(1, $tickMatrix->ifCellAliveAt(2,0));
+        $this->assertEquals(0, $tickMatrix->ifCellAliveAt(2,1));
+        $this->assertEquals(0, $tickMatrix->ifCellAliveAt(2,2));
 
     }
 }
