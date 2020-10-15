@@ -100,7 +100,7 @@ class Matrix
     * @param int $y Position of the cell on the columns of the matrix
     * @return bool true or false if cell is alive
     */
-    public function ifCellAliveAt(int $x, int $y): bool
+    public function ifCellAliveAt(int $x, int $y): int
     {
         if($this->insideOfBounds($x, $y))
         {
