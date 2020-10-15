@@ -15,6 +15,12 @@ class Matrix
 
     }
 
+    /**
+    * Fills a random matrix
+    * @param int $width the number of the matrix rows
+    * @param int $height the number of the matrix columns
+    * @return void
+    */
     public function fillRandomly(int $width, int $height): void
     {
         for ($x = 0; $x < $height; $x++)
@@ -26,12 +32,21 @@ class Matrix
         }
     }
 
+    /**
+    * Creates a matrix with a given array
+    * @param array $cells Array with the matrix. The array must contais objects type Cell
+    * @return void
+    */
     public function fillWithArray(array $cells) : void
     {
         $this->cells = $cells;
     }
 
 
+    /**
+    * Returns an array with the status of the cells
+    * @return array Contains the status of the cells (1 for alive, 0 for dead cells)
+    */
     public function getCells(): array
     {
         $matrix = [];
@@ -47,8 +62,13 @@ class Matrix
         return $matrix;
     }
 
-
-    public function getAliveNeighbour($x, $y): int
+    /**
+    * Returns the number of alive neighbours from a given position
+    * @param int $x Position of the cell on the rows of the matrix
+    * @param int $y Position of the cell on the columns of the matrix
+    * @return int The number of the alive neighbours
+    */
+    public function getAliveNeighbour(int $x, int $y): int
     {
         $n1 = $this->ifCellAliveAt($x-1, $y-1);
         $n2 = $this->ifCellAliveAt($x-1, $y);
@@ -62,13 +82,25 @@ class Matrix
         return $n1+$n2+$n3+$n4+$n5+$n6+$n7+$n8;
     }
 
-    private function insideOfBounds($x, $y): int
+    /**
+    * Returns if the coordenates are inside the bounds of the matrix
+    * @param int $x Position of the cell on the rows of the matrix
+    * @param int $y Position of the cell on the columns of the matrix
+    * @return bool true or false if the coordinates are inside the bounds
+    */
+    private function insideOfBounds(int $x, int $y): bool
     {
 
         return isset($this->cells[$x][$y]);
     }
 
-    public function ifCellAliveAt($x, $y)
+    /**
+    * Return if the  cell is alive at the given coordinates
+    * @param int $x Position of the cell on the rows of the matrix
+    * @param int $y Position of the cell on the columns of the matrix
+    * @return bool true or false if cell is alive
+    */
+    public function ifCellAliveAt(int $x, int $y): bool
     {
         if($this->insideOfBounds($x, $y))
         {
@@ -76,6 +108,10 @@ class Matrix
         }
     }
 
+    /**
+    * Iterates in the matrix and makes a tick for every cell
+    * @return Matrix The matrix with the new cells
+    */
     public function tick(): self
     {
         $matrix = clone $this;
