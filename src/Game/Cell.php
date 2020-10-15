@@ -18,25 +18,33 @@ class Cell
 
         $this->alive = $alive;
     }
-
+    
+    /**
+    * Returns a bool whether if the cell is alive or not
+    * @return bool 
+    */
     public function imAlive(): bool
     {
         return $this->alive;
     }
 
-
-    public function tick(int $aliveNeighbors): self
+    /**
+    * Make a tick depending the alive neighbours
+    * @param int $aliveNeighbours the number of the alive neighbours round the cell.
+    * @return Cell object with the new status
+    */
+    public function tick(int $aliveNeighbours): self
     {
         if ($this->imAlive())
         {
-            if($aliveNeighbors == 2 || $aliveNeighbors == 3)
+            if($aliveNeighbours == 2 || $aliveNeighbours == 3)
             {
                 return CellFactory::getAliveCell();
             }else{
                 return CellFactory::getDeadCell();
             }
         }else{
-            if($aliveNeighbors == 3)
+            if($aliveNeighbours == 3)
             {
                 return CellFactory::getAliveCell();
             }else{
