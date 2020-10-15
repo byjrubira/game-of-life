@@ -5,7 +5,7 @@ PHP implementation of Conway Game of Life with CLI visualization of cells changi
 The script launch a 20x20 random matrix with 100 ticks.
 
 # Requirements
-- PHP 7.3
+- Min version PHP 7.3
 - Docker - [https://www.docker.com/](https://www.docker.com/) - In case of docker usage
 - Composer - [https://getcomposer.org/](https://getcomposer.org/) - In case of no docker usage
 
