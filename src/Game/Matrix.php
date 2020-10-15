@@ -105,6 +105,8 @@ class Matrix
         if($this->insideOfBounds($x, $y))
         {
             return $this->cells[$x][$y]->imAlive()?1:0;
+        }else{
+            return 0;
         }
     }
 
